@@ -58,42 +58,36 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun LineChart(innerPadding: PaddingValues, viewModel: SampleViewModel = SampleViewModel().apply { setData() }) {
-    var height by remember { mutableStateOf(0f) }
-    var width by remember { mutableStateOf(0f) }
-    var touchIndex by remember { mutableStateOf(-1) }
-    var isTouchLast by remember { mutableStateOf(false) }
+    var height by remember { mutableStateOf(0f) }//绘制图表高度
+    var width by remember { mutableStateOf(0f) } //绘制图表高度
+    var touchIndex by remember { mutableStateOf(-1) }//点击touch 算出水平数据索引
+    var isTouchLast by remember { mutableStateOf(false) } // 控制点击绘制浮层，图标最右边时候，可显示在左边
     val textMeasurer = rememberTextMeasurer()
 
     val chatModel by viewModel.chatModel.observeAsState()
 
 
     chatModel?.let {
-        Column(
-            modifier = Modifier
-                .padding(innerPadding)
-                .fillMaxWidth()
-                .fillMaxHeight()
-        ) {
-            Canvas(modifier = Modifier
-                .fillMaxWidth()
-                .height(300.dp)
-                .onSizeChanged {
-                    width = it.width.toFloat()
-                    height = it.height.toFloat()
-                }
-                //监听手势缩放
-                .graphicsLayer()
-                .background(Color.White)
-                .pointerInput(Unit) {
-                    detectTapGestures(onTap = {
-                        touchIndex = getTouchIndex(chatModel, width, it.x, it.y)
-                        isTouchLast = if (chatModel != null) {
-                            chatModel!!.xCount - 3 <= touchIndex
-                        } else false
-                    })
-                }) {
-                realDrawChart(this@Canvas, width, height, it, textMeasurer, touchIndex, isTouchLast)
+        Canvas(modifier = Modifier
+            .padding(innerPadding)
+            .fillMaxWidth()
+            .height(300.dp)
+            .onSizeChanged {
+                width = it.width.toFloat()
+                height = it.height.toFloat()
             }
+            //监听手势缩放
+            .graphicsLayer()
+            .background(Color.White)
+            .pointerInput(Unit) {
+                detectTapGestures(onTap = {
+                    touchIndex = getTouchIndex(chatModel, width, it.x, it.y)
+                    isTouchLast = if (chatModel != null) {
+                        chatModel!!.xCount - 3 <= touchIndex
+                    } else false
+                })
+            }) {
+            realDrawChart(this@Canvas, width, height, it, textMeasurer, touchIndex, isTouchLast)
         }
     }
 }
