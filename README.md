@@ -1,5 +1,5 @@
 
-![img_v3_02gp_14677f22-beba-45ff-8d6f-bf564839858g.jpg](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b718e4e5d6504bb9b423de8dbe1f7223~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgV2dsbHNz:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMzU2NjYxODM1MDgyNTczIn0%3D&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1732076757&x-orig-sign=MN%2FiDMk4B4fofaatCvv3o5XvUzE%3D)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/pic/1111.jpg)
 
 
 ## 一、使用WXChart
