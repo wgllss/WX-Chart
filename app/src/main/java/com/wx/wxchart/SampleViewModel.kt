@@ -22,7 +22,7 @@ class SampleViewModel : ViewModel() {
         val chatmodel = ChatModel(
             datas = mutableListOf(chatLineBean1, chatLineBean2, chatLineBean3, chatLineBean4), //多条曲线集
             listX = getXlables(), //x轴上刻度文字
-            yCount = 5, //y轴横线刻度数 ，包含 0，比如0到5 设置为 6
+            yCount = 5, //y轴横线刻度数 ，包含 0，比如0到5 含X轴6根水平线
             xCount = getXlables().size, //x轴纵向上点数 包含 0 一般为X数据集size 必须大于1
             offsetx = toDp(72f), //UI上原点左下角 x偏移
             offsetxLable = toDp(12f),//原点 y轴上面刻度文字x偏移  相对控件最左边偏移
