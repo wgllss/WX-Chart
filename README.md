@@ -1,5 +1,5 @@
 
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/pic/1111.jpg)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/1111.jpg)
 
 
 ## 一、使用WXChart
