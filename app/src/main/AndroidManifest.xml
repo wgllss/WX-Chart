@@ -14,7 +14,7 @@
         android:theme="@style/Theme.WXChart"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.WXChart">
@@ -24,6 +24,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activity.LineChartActivity2"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.LineChartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.BarChartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PieChartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.HoopChartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
     </application>
 
 </manifest>

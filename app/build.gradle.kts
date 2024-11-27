@@ -79,6 +79,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
 //    implementation(libs.wgllss.wxchart)
-    implementation("io.github.wgllss:Wgllss-WXChart:1.0.03")
+    implementation("io.github.wgllss:Wgllss-WXChart:1.0.05")
 
 }
