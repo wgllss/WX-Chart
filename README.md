@@ -1,6 +1,9 @@
 
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/1111.jpg)
-
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/21111.jpg)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/2222.jpg)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/3333.jpg)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/4444.jpg)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/5555.jpg)
 
 ## 一、使用WXChart
 ##### 1、`repositories`中添加如下`maven`
@@ -13,47 +16,12 @@
 ```
 #### 2、 `dependencies`中添加依赖
 ```
-implementation("io.github.wgllss:Wgllss-WXChart:1.0.03")
+implementation("io.github.wgllss:Wgllss-WXChart:1.0.11")
 ```
-#### 3、使用地方 主要调用：` realDrawChart(this@Canvas, width, height, it, textMeasurer, touchIndex, isTouchLast)` 如下：
-```
+#### 3、使用文章介绍：
 
-@Composable
-fun LineChart(innerPadding: PaddingValues, viewModel: SampleViewModel = SampleViewModel().apply { setData() }) {
-    var height by remember { mutableStateOf(0f) }//绘制图表高度
-    var width by remember { mutableStateOf(0f) } //绘制图表高度
-    var touchIndex by remember { mutableStateOf(-1) }//点击touch 算出水平数据索引
-    var isTouchLast by remember { mutableStateOf(false) } // 控制点击绘制浮层，图标最右边时候，可显示在左边
-    val textMeasurer = rememberTextMeasurer()
+###### [Compose折线图，贝赛尔曲线图，柱状图，圆饼图，圆环图。带动画和点击效果](https://juejin.cn/post/7442228138501259283)
 
-    val chatModel by viewModel.chatModel.observeAsState()
-
-
-    chatModel?.let {
-        Canvas(modifier = Modifier
-            .padding(innerPadding)
-            .fillMaxWidth()
-            .height(300.dp)
-            .onSizeChanged {
-                width = it.width.toFloat()
-                height = it.height.toFloat()
-            }
-            //监听手势缩放
-            .graphicsLayer()
-            .background(Color.White)
-            .pointerInput(Unit) {
-                detectTapGestures(onTap = {
-                    touchIndex = getTouchIndex(chatModel, width, it.x, it.y)
-                    isTouchLast = if (chatModel != null) {
-                        chatModel!!.xCount - 3 <= touchIndex
-                    } else false
-                })
-            }) {
-            realDrawChart(this@Canvas, width, height, it, textMeasurer, touchIndex, isTouchLast)
-        }
-    }
-}
-```
 #### 4、数据提供方
 
 ```
