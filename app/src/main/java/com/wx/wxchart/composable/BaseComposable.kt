@@ -65,7 +65,7 @@ fun baseUI2(content: @Composable (PaddingValues) -> Unit, onClick: () -> Unit) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .fillMaxHeight(), verticalAlignment = Alignment.CenterVertically
+                    .fillMaxHeight(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.Center
             ) {
                 Text(text = "图表库", fontSize = 18.sp, color = Color.White, style = TextStyle.Default)
             }
