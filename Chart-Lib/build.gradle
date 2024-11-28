@@ -1,0 +1,107 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.maven.publish)
+//    alias(libs.plugins.kotlin.kapt)
+}
+
+group 'io.github.wgllss'
+
+task genrateSourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set("sources")
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                artifactId = 'Wgllss-WXChart'
+                version "1.0.11"
+            }
+        }
+
+        repositories {
+            maven {
+                url "https://s01.oss.sonatype.org/content/repositories/releases/"
+                name = 'release'
+                credentials {
+                    // 这里就是之前在issues.sonatype.org注册的账号
+                    def properties = new Properties()
+                    def inputSteam = project.rootProject.file('local.properties').newDataInputStream()
+                    properties.load(inputSteam)
+                    username = properties.getProperty('store_username')
+                    password = properties.getProperty('store_password')
+                }
+            }
+        }
+    }
+}
+
+android {
+    namespace = "com.wx.chart.lib"
+    compileSdk = 34
+
+    defaultConfig {
+        minSdk = 24
+        targetSdk = 34
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+//    buildTypes {
+//        release {
+//            isMinifyEnabled = false
+//            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+//        }
+//    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.7.0"
+    }
+//    kapt {
+//        generateStubs = true
+//    }
+}
+
+dependencies {
+
+//    implementation(libs.androidx.core.ktx)
+//    implementation(libs.androidx.lifecycle.runtime.ktx)
+
+    //compose
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.androidx.runtime.livedata)
+//    implementation(libs.coil.compose)
+//    implementation(libs.androidx.navigation.compose)
+//    implementation(libs.androidx.navigation.runtime.ktx)
+//    implementation(libs.androidx.compose.material3.adaptive.navigation)
+//    implementation(libs.androidx.compose.material3.adaptive)
+//    implementation(libs.androidx.compose.material3.adaptive.layout)
+//    implementation(libs.androidx.compose.material3.navigationSuite)
+//    implementation(libs.androidx.compose.material3.windowSizeClass)
+
+//    implementation(libs.collapsing.toolbar.scaffold)
+    implementation(libs.androidx.ui.graphics.android)
+
+
+//    testImplementation(libs.junit)
+//    androidTestImplementation(libs.androidx.junit)
+//    androidTestImplementation(libs.androidx.espresso.core)
+}

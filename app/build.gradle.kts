@@ -81,4 +81,6 @@ dependencies {
 //    implementation(libs.wgllss.wxchart)
     implementation("io.github.wgllss:Wgllss-WXChart:1.0.11")
 
+//    implementation(project(":Chart-Lib"))
+
 }

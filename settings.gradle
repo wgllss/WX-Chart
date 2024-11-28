@@ -25,4 +25,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "WXChart"
 include(":app")
- 
+include(":Chart-Lib")
