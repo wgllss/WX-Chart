@@ -70,10 +70,11 @@ class SampleViewModel : ViewModel() {
     fun setData3() {
         //圆饼图数据
         val chartPieModel = ChartPieModel(getRandomPieList(), toDp(50f)).apply {
-            offsetx = toDp(-180f) //UI上圆心偏移X ,负数向做移动
+            offsetx = toDp(-80f) //UI上圆心偏移X ,负数向做移动
             offsetxLable = toDp(150f)//右边文字距离 圆形右边距离偏移量
             offsety = 0f //UI圆心 y 偏移，负数 向上移动
             durationMillis = 200
+            lableLeftOffetx = toDp(60f)
         }
         _datas3.value = chartPieModel
     }
@@ -81,12 +82,13 @@ class SampleViewModel : ViewModel() {
 
     fun setData4() {
         //环型图数据
-        val chartHoopModel = ChartPieModel(getRandomPieList(), toDp(80f)).apply {
-            offsetx = toDp(-180f) //UI上圆心偏移X ,负数向做移动
+        val chartHoopModel = ChartPieModel(getRandomPieList(), toDp(100f)).apply {
+            offsetx = toDp(-80f) //UI上圆心偏移X ,负数向做移动
             offsetxLable = toDp(150f)//右边文字距离 圆形右边距离偏移量
             offsety = 0f //UI圆心 y 偏移，负数 向上移动
             durationMillis = 200
             isHoop = true
+            lableLeftOffetx = toDp(60f)
             hoopSize = toDp(80f)
         }
         _datas4.value = chartHoopModel

@@ -71,6 +71,7 @@ fun PieChart(innerPadding: PaddingValues = PaddingValues(100.dp), viewModel: Sam
         Column(
             modifier = Modifier
                 .padding(innerPadding)
+                .background(Color.White)
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {

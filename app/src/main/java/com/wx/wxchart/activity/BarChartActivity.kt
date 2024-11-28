@@ -72,6 +72,7 @@ fun BarChart(innerPadding: PaddingValues = PaddingValues(0.dp), viewModel: Sampl
         Column(
             modifier = Modifier
                 .padding(innerPadding)
+                .background(Color.White)
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {

@@ -69,6 +69,7 @@ fun LineChart2(innerPadding: PaddingValues, viewModel: SampleViewModel = SampleV
         Column(
             modifier = Modifier
                 .padding(innerPadding)
+                .background(Color.White)
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {

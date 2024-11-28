@@ -58,7 +58,7 @@ fun baseUI2(content: @Composable (PaddingValues) -> Unit, onClick: () -> Unit) {
         TopAppBar(modifier = Modifier
             .fillMaxWidth()
             .background(Color.Blue)
-            .height(81.dp), colors = mediumTopAppBarColors(
+            .height(58.dp), colors = mediumTopAppBarColors(
             containerColor = Color.Blue,
             titleContentColor = MaterialTheme.colorScheme.primary,
         ), title = {

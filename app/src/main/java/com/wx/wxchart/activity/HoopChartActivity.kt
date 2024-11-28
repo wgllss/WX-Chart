@@ -72,6 +72,7 @@ fun HoopChart(innerPadding: PaddingValues = PaddingValues(100.dp), viewModel: Sa
         Column(
             modifier = Modifier
                 .padding(innerPadding)
+                .background(Color.White)
                 .fillMaxWidth()
                 .fillMaxHeight()
         ) {
