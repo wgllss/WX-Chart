@@ -1,9 +1,9 @@
 
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/21111.jpg)
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/2222.jpg)
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/3333.jpg)
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/4444.jpg)
-![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/5555.jpg)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/21111.gif)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/2222.gif)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/3333.gif)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/4444.gif)
+![1111.jpg](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/5555.gif)
 
 ## 一、使用WXChart
 ##### 1、`repositories`中添加如下`maven`
