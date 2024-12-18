@@ -1,12 +1,15 @@
-
 ![21111.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/21111.gif)
 ![2222.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/2222.gif)
 ![3333.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/3333.gif)
 ![4444.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/4444.gif)
 ![5555.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/5555.gif)
+![6666.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/6666.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/7777.gif)
 
 ## 一、使用WXChart
+
 ##### 1、`repositories`中添加如下`maven`
+
 ```
     repositories {
         maven { url 'https://repo1.maven.org/maven2/' }
@@ -14,10 +17,13 @@
     }
 }
 ```
+
 #### 2、 `dependencies`中添加依赖
+
 ```
 implementation("io.github.wgllss:Wgllss-WXChart:1.0.11")
 ```
+
 #### 3、使用文章介绍：
 
 ###### [Compose折线图，贝赛尔曲线图，柱状图，圆饼图，圆环图。带动画和点击效果](https://juejin.cn/post/7442228138501259283)
@@ -54,32 +60,36 @@ fun setData() {
 ```
 
 #### 5、数据说明（`ChartModel的参数`）
-参数              | 类型                        | 说明                                            |
-| --------------- | ------------------------- | --------------------------------------------- |
+
+ 参数              | 类型                         | 说明                                            |
+|-----------------|----------------------------|-----------------------------------------------|
 | datas           | MutableList\<ChatLineBean> | 多条曲线集                                         |
 | listX           | MutableList\<String>       | x轴上刻度文字                                       |
-| yCount          | Int                       | y轴横线刻度数 ，包含 0，比如0到5, 含X轴6条水平线                    |
-| xCount          | Int                       | //x轴纵向上点数 包含 0 一般为X数据集size 必须大于1              |
-| offsetx         | Float                     | UI上原点左下角 x偏移                                  |
-| offsetxLable    | Float                     | 原点 y轴上面刻度文字x偏移 相对控件最左边偏移                      |
-| offsety         | Float                     | UI上原点左下角 y 偏移                                 |
-| offsetyLable    | Float                     | 原点 y上面刻度文字文字 y偏移 相对控件左下角点,调整Y值文字在竖直中间位置 与横线对齐 |
-| xLableStep      | Int                       | x轴上刻度对应文字，太多了显示不下，可以设置显示步长。如隔4个显示一个           |
-| isShowYLine     | Boolean                   | 否显示Y轴线                                        |
-| clickLayerColor | @StableColor              | 点击后展示浮层背景颜色
+| yCount          | Int                        | y轴横线刻度数 ，包含 0，比如0到5, 含X轴6条水平线                 |
+| xCount          | Int                        | //x轴纵向上点数 包含 0 一般为X数据集size 必须大于1              |
+| offsetx         | Float                      | UI上原点左下角 x偏移                                  |
+| offsetxLable    | Float                      | 原点 y轴上面刻度文字x偏移 相对控件最左边偏移                      |
+| offsety         | Float                      | UI上原点左下角 y 偏移                                 |
+| offsetyLable    | Float                      | 原点 y上面刻度文字文字 y偏移 相对控件左下角点,调整Y值文字在竖直中间位置 与横线对齐 |
+| xLableStep      | Int                        | x轴上刻度对应文字，太多了显示不下，可以设置显示步长。如隔4个显示一个           |
+| isShowYLine     | Boolean                    | 否显示Y轴线                                        |
+| clickLayerColor | @StableColor               | 点击后展示浮层背景颜色                                   
 
 #### 6、数据对象`ChatLineBean`的参数说明
-参数        | 类型                 | 说明                |
-| --------- | ------------------ | ----------------- |
+
+ 参数        | 类型                  | 说明                |
+|-----------|---------------------|-------------------|
 | listY     | MutableList\<Float> | 曲线的y值数据集          |
-| color     | @StableColor       | 曲线颜色              |
-| lineTitle | String             | 曲线名称 比如 收藏曲线 点赞曲线
-    
+| color     | @StableColor        | 曲线颜色              |
+| lineTitle | String              | 曲线名称 比如 收藏曲线 点赞曲线 
+
 ## 二、绘制原理
+
 1. 主要使用的 **`drawLine`,`drawText`，`drawPath`,`drawOval`,`drawRect`** 等绘制方法
 2. 绘制过程中的起始点x,y坐标，是以控件左上角为原来，x轴向右、y轴向下为正方向的
-但是图表上UI上的原点是左下角原点。
+   但是图表上UI上的原点是左下角原点。
 3. 主要的难点在于计算绘制的起始位置，确定UI图表上面的原点位置, 坐标位置计算：**`全是初中坐标知识`**
+
 > 3.1 我们需要计算图表控件的宽高`（width , height）`，UI图标原点距离左下角的偏移位置`(offsetx , offsety)`即为原点,图表上面距离顶部设定也为`offsety`，右边距离控件右边偏移为`offsetx/2`  
 > 3.2 原点位置可以得到坐标为`(offsetx , height-offsety)`  
 > 3.3 X轴最右边坐标为`(width- offsetx/2 , height-offsety)`  
@@ -96,6 +106,7 @@ fun setData() {
 > 3.14 每一条`实际数据`对应图表上面的`Y坐标`便可以计算出来：`height - item X yAbs - offsety` `（其中item：为实际曲线的数据值）`
 
 ## 本人其他开源：
+
 ## 全动态插件化框架WXDynamicPlugin介绍文章：
 
 #### [(一) 插件化框架开发背景：零反射，零HooK,全动态化，插件化框架，全网唯一结合启动优化的插件化架构](https://juejin.cn/post/7347994218235363382)
@@ -131,7 +142,6 @@ fun setData() {
 #### [花式封装：Kotlin+协程+Flow+Retrofit+OkHttp +Repository，倾囊相授,彻底减少模版代码进阶之路](https://juejin.cn/post/7417847546323042345)
 
 #### [注解处理器在架构，框架中实战应用：MVVM中数据源提供Repository类的自动生成](https://juejin.cn/post/7392258195089162290)
-
 
 #### 感谢阅读，欢迎给给个星，你们的支持是我开源的动力
 

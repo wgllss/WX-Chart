@@ -60,7 +60,7 @@ fun mainUI(innerPadding: PaddingValues, viewModel: ComposeViewModel) {
             .padding(innerPadding)
             .background(Color.White)
             .fillMaxWidth()
-            .fillMaxHeight(), columns = GridCells.Fixed(1)
+            .fillMaxHeight(), columns = GridCells.Fixed(2)
     ) {
         items(mainItmes) { item ->
             Button(
