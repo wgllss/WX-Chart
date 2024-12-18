@@ -21,7 +21,8 @@
 #### 2、 `dependencies`中添加依赖
 
 ```
-implementation("io.github.wgllss:Wgllss-WXChart:1.0.11")
+implementation("io.github.wgllss:Wgllss-WXChart:1.0.15")
+implementation(libs.glide)//动态走势图需要添加glide,加载网络图片
 ```
 
 #### 3、使用文章介绍：
