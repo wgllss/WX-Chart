@@ -1,9 +1,6 @@
 package com.wx.chart.data.dynamic
 
-import androidx.compose.runtime.Stable
-import androidx.compose.ui.graphics.Color
 import com.wx.chart.data.ChartBarBaseModel
-import com.wx.chart.data.DynamicKey
 
 class DynamicModel(
     val arrayKey: Array<DynamicKey>, //存放当前年份特定值，当前年份Key,
@@ -13,8 +10,6 @@ class DynamicModel(
 
     var dynamicChartName = "" //动态表名称
 
-    @Stable
-    var titleColor: Color? = null//每个条形名称颜色
 
     var bgUrl: String = ""//整个动画背景图
 

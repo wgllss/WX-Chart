@@ -10,11 +10,11 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -29,10 +29,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
-import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import com.bumptech.glide.Glide
@@ -71,24 +72,24 @@ fun realDrawLineChart(modifier: Modifier, textMeasurer: TextMeasurer, it: ChatLi
         if (it.isShowYLine)
         //绘制 Y轴
             drawLine(
-                start = Offset(it.offsetx, height - it.offsety), end = Offset(it.offsetx, it.offsety), color = Color.Black, strokeWidth = 2f
+                start = Offset(it.offsetx, height - it.offsety), end = Offset(it.offsetx, it.offsety), color = it.colorYLine, strokeWidth = 2f
             )
         //绘制 X轴
         drawLine(
-            start = Offset(it.offsetx, height - it.offsety), end = Offset(width - it.offsetx / 2, height - it.offsety), color = Color.Black, strokeWidth = 2f
+            start = Offset(it.offsetx, height - it.offsety), end = Offset(width - it.offsetx / 2, height - it.offsety), color = it.colorXLine, strokeWidth = 2f
         )
 
         for (i in 0..it.yCount) {
             drawLine(
-                start = Offset(it.offsetx, height - it.offsety - i * heightDiv), end = Offset(width - it.offsetx / 2, height - it.offsety - i * heightDiv), color = Color.LightGray, strokeWidth = 1f
+                start = Offset(it.offsetx, height - it.offsety - i * heightDiv), end = Offset(width - it.offsetx / 2, height - it.offsety - i * heightDiv), color = it.colorLine, strokeWidth = 1f
             )
             drawText(
-                textMeasurer = textMeasurer, text = "${"%.2f".format((i * yValue))}", topLeft = Offset(it.offsetxLable, height - it.offsety - i * heightDiv - it.offsetyLable)
+                textMeasurer = textMeasurer, text = "${"%.2f".format((i * yValue))}", style = TextStyle(color = it.colotLable), topLeft = Offset(it.offsetxLable, height - it.offsety - i * heightDiv - it.offsetyLable)
             )
         }
         for (i in 0 until it.xCount step it.xLableStep) {
             drawText(
-                textMeasurer = textMeasurer, text = "${it.listX[i]}", topLeft = Offset(it.offsetx + i * xDiv - 30f, height - 3 * it.offsetyLable)
+                textMeasurer = textMeasurer, text = "${it.listX[i]}", style = TextStyle(color = it.colotLable), topLeft = Offset(it.offsetx + i * xDiv - 30f, height - 3 * it.offsetyLable)
             )
         }
         val path = Path()
@@ -230,27 +231,27 @@ fun realDrawBarChart(modifier: Modifier, textMeasurer: TextMeasurer, it: ChartBa
         if (it.isShowYLine)
         //绘制 Y轴
             drawLine(
-                start = Offset(it.offsetx, height - it.offsety), end = Offset(it.offsetx, it.offsety), color = Color.Black, strokeWidth = 2f
+                start = Offset(it.offsetx, height - it.offsety), end = Offset(it.offsetx, it.offsety), color = it.colorYLine, strokeWidth = 2f
             )
         //绘制 X轴
         drawLine(
-            start = Offset(it.offsetx, height - it.offsety), end = Offset(width - it.offsetx / 2, height - it.offsety), color = Color.Black, strokeWidth = 2f
+            start = Offset(it.offsetx, height - it.offsety), end = Offset(width - it.offsetx / 2, height - it.offsety), color = it.colorXLine, strokeWidth = 2f
         )
 
         for (i in 0..it.yCount) {
             //绘制y轴上几条横线
             drawLine(
-                start = Offset(it.offsetx, height - it.offsety - i * heightDiv), end = Offset(width - it.offsetx / 2, height - it.offsety - i * heightDiv), color = Color.LightGray, strokeWidth = 1f
+                start = Offset(it.offsetx, height - it.offsety - i * heightDiv), end = Offset(width - it.offsetx / 2, height - it.offsety - i * heightDiv), color = it.colorLine, strokeWidth = 1f
             )
             //绘制y轴上几条横线对应的y值
             drawText(
-                textMeasurer = textMeasurer, text = "${"%.2f".format((i * yValue))}", topLeft = Offset(it.offsetxLable, height - it.offsety - i * heightDiv - it.offsetyLable)
+                textMeasurer = textMeasurer, text = "${"%.2f".format((i * yValue))}", style = TextStyle(color = it.colotLable), topLeft = Offset(it.offsetxLable, height - it.offsety - i * heightDiv - it.offsetyLable)
             )
         }
         for (i in 0 until it.xCount step it.xLableStep) {
             //绘制x上刻度文案
             drawText(
-                textMeasurer = textMeasurer, text = "${it.list[i].title}", topLeft = Offset(it.offsetx + i * xDiv + it.offextBarLeftX - 30f, height - 3 * it.offsetyLable)
+                textMeasurer = textMeasurer, text = "${it.list[i].title}", style = TextStyle(color = it.titleColor ?: it.list[i].color), topLeft = Offset(it.offsetx + i * xDiv + it.offextBarLeftX - 30f, height - 3 * it.offsetyLable)
             )
         }
         for ((m, item) in it.list.withIndex()) {
@@ -305,27 +306,27 @@ fun realDrawHBarChart(modifier: Modifier, textMeasurer: TextMeasurer, it: ChartB
         if (it.isShowYLine)
         //绘制 Y轴
             drawLine(
-                start = Offset(it.offsetx, height - it.offsety), end = Offset(it.offsetx, it.offsety), color = Color.Black, strokeWidth = 2f
+                start = Offset(it.offsetx, height - it.offsety), end = Offset(it.offsetx, it.offsety), color = it.colorYLine, strokeWidth = 2f
             )
         //绘制 X轴
         drawLine(
-            start = Offset(it.offsetx, height - it.offsety), end = Offset(width - it.offsetx / 2, height - it.offsety), color = Color.Black, strokeWidth = 2f
+            start = Offset(it.offsetx, height - it.offsety), end = Offset(width - it.offsetx / 2, height - it.offsety), color = it.colorXLine, strokeWidth = 2f
         )
 
         for (i in 0..it.xCount) {
             //绘制x轴上几条竖线
             drawLine(
-                start = Offset(it.offsetx + i * xDiv, height - it.offsety), end = Offset(it.offsetx + i * xDiv, it.offsety), color = Color.LightGray, strokeWidth = 1f
+                start = Offset(it.offsetx + i * xDiv, height - it.offsety), end = Offset(it.offsetx + i * xDiv, it.offsety), color = it.colorLine, strokeWidth = 1f
             )
             //绘制x轴上几条竖线对应的X值
             drawText(
-                textMeasurer = textMeasurer, text = "${"%.2f".format((i * xValue))}", topLeft = Offset(it.offsetx + i * xDiv - it.offsetxLable, height - 3 * it.offsetyLable)
+                textMeasurer = textMeasurer, text = "${"%.2f".format((i * xValue))}", style = TextStyle(color = it.colotLable), topLeft = Offset(it.offsetx + i * xDiv - it.offsetxLable, height - 3 * it.offsetyLable)
             )
         }
         for (i in 0 until it.yCount) {
             //绘制Y上刻度文案
             drawText(
-                textMeasurer = textMeasurer, text = "${it.list[i].title}", topLeft = Offset(it.offsetxLable, height - it.offsety - it.barWidth - it.offextBarBottomY - i * heightDiv)
+                textMeasurer = textMeasurer, text = "${it.list[i].title}", style = TextStyle(color = it.titleColor ?: it.list[i].color), topLeft = Offset(it.offsetxLable, height - it.offsety - it.barWidth - it.offextBarBottomY - i * heightDiv)
             )
         }
         for ((m, item) in it.list.withIndex()) {
@@ -516,6 +517,7 @@ fun getTouchPieIndex(chatModel: ChartPieModel?, centerX: Float, centerY: Float, 
 fun drawDynamicBarChart(modifier: Modifier, textMeasurer: TextMeasurer, style: TextStyle, it: DynamicModel) {
     var mSize by remember { mutableStateOf(Size(0f, 0f)) }
     var start by remember { mutableStateOf(false) }
+    val lifecycleOwner = LocalLifecycleOwner.current
     val context = LocalContext.current
     val player = remember { ExoPlayer.Builder(context).build() }
     var drawPosition by remember { mutableStateOf(0) }
@@ -595,6 +597,19 @@ fun drawDynamicBarChart(modifier: Modifier, textMeasurer: TextMeasurer, style: T
             player.stop()
             player.release()
             it.isPlayComplete = true
+        }
+    }
+
+    DisposableEffect(lifecycleOwner) {
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_STOP) {
+                player.stop()
+                player.release()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose {
+            lifecycleOwner.lifecycle.removeObserver(observer)
         }
     }
 

@@ -1,4 +1,4 @@
-package com.wx.chart.data
+package com.wx.chart.data.dynamic
 
 data class DynamicKey(
     val currentKey: String,    //当前数据的年份 或者日期，或者其他作为K的值

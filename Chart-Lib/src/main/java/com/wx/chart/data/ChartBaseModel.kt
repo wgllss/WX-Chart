@@ -24,8 +24,8 @@ open class ChartBaseModel {
     var colorYLine: Color = Color.Black //Y 轴线颜色
 
     @Stable
-    var colorLine: Color = Color.LightGray //刻度线颜色，可能竖线，也可能是横线，看图标
+    var colorLine: Color = Color.LightGray //刻度线颜色，可能竖线，也可能是横线，看图表
 
     @Stable
-    var colotLable: Color = Color.Black
+    var colotLable: Color = Color.Black //X轴上面刻度值文案颜色,柱状图，曲线折线图也是Y 轴上面刻度值文案颜色
 }

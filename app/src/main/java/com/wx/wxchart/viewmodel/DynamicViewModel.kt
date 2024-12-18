@@ -7,16 +7,15 @@ import androidx.compose.ui.graphics.Canvas
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.Paint
-import androidx.compose.ui.res.imageResource
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.wx.chart.data.DynamicKey
 import com.wx.chart.data.dynamic.DynamicBarBean
 import com.wx.chart.data.dynamic.DynamicImage
+import com.wx.chart.data.dynamic.DynamicKey
 import com.wx.chart.data.dynamic.DynamicModel
 import com.wx.wxchart.MyApp
 import kotlinx.coroutines.flow.flow
@@ -86,7 +85,7 @@ class DynamicViewModel : ViewModel() {
                     titleColor = Color.White //每个条形名称颜色
                     dynamicChartName = "1960~2023各国GPD走势Top10" //动态表名称
 
-                    colotLable = Color.White//X轴上面刻度变化文章颜色
+                    colotLable = Color.White//X轴上面刻度变化文案颜色
                     maxValueOffsetRight = toDp(150f)
                     bgUrl = "https://q5.itc.cn/q_70/images01/20240723/42bdcb602f35471eadddb09908b683f1.jpeg"//整个动画背景图
                 }
