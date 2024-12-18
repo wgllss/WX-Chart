@@ -135,9 +135,9 @@ class SampleViewModel : ViewModel() {
 
     fun getRandomBarList(): MutableList<ChartBarBean> {
         val list = mutableListOf<ChartBarBean>()
-        val listColor = listOf(Color.Red, Color.Green, Color.Blue, Color.Magenta, Color.Yellow, Color.Cyan, Color.Gray)
+        val listColor = listOf(Color.Red, Color.Green, Color.Blue, Color.Magenta, Color.Yellow, Color.Cyan, Color.Gray, Color(0xF0EFD5A0), Color(0xFFF0FD00), Color(0xFACE5DA0))
         for (i in 0..9) {
-            list.add(ChartBarBean(Random.nextInt(5362).toFloat(), listColor[Random.nextInt(listColor.size)], "城市${i}"))
+            list.add(ChartBarBean(Random.nextInt(5362).toFloat(), listColor[i], "城市${i}"))
         }
         return list
     }
