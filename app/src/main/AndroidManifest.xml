@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -39,11 +45,19 @@
             android:screenOrientation="landscape"
             android:theme="@style/Theme.WXChart" />
         <activity
+            android:name=".activity.HBarChartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
             android:name=".activity.PieChartActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.WXChart" />
         <activity
             android:name=".activity.HoopChartActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.DynamicBarChartActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.WXChart" />
     </application>

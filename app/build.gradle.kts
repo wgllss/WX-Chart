@@ -77,9 +77,10 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
+    implementation(libs.converter.gson)
+    implementation(libs.glide)
 //    implementation(libs.wgllss.wxchart)
-    implementation("io.github.wgllss:Wgllss-WXChart:1.0.11")
+    implementation("io.github.wgllss:Wgllss-WXChart:1.0.15")
 
 //    implementation(project(":Chart-Lib"))
 

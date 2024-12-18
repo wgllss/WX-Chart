@@ -27,6 +27,9 @@ class SampleViewModel : ViewModel() {
     private val _datas4 = MutableLiveData<ChartPieModel>()
     val chatHoopModel: LiveData<ChartPieModel> = _datas4
 
+    private val _datas5 = MutableLiveData<ChartBarModel>()
+    val chatHBarModel: LiveData<ChartBarModel> = _datas5
+
     fun setData() {
 
         val chatLineBean1 = ChatLineBean(getRandomList(), Color.Red, "收藏")
@@ -52,7 +55,8 @@ class SampleViewModel : ViewModel() {
 
     fun setData2() {
         //条形图数据
-        val chatBarModel = ChartBarModel(getRandomBarList(), toDp(15f)).apply {
+        val chatBarModel = ChartBarModel(getRandomBarList()).apply {
+            barWidth = toDp(15f)
             yCount = 5 //y轴横线刻度数 ，包含 0，比如0到5 设置为 6
             xCount = getXlables().size //x轴纵向上点数 包含 0 一般为X数据集size 必须大于1
             offsetx = toDp(100f) //UI上原点左下角 x偏移
@@ -92,6 +96,23 @@ class SampleViewModel : ViewModel() {
             hoopSize = toDp(80f)
         }
         _datas4.value = chartHoopModel
+    }
+
+    fun setData5() {
+        //条形图
+        val chatHBarModel = ChartBarModel(getRandomBarList()).apply {
+            barWidth = toDp(15f)
+            offextBarTopY = toDp(5f)
+            offextBarBottomY = toDp(5f)
+            yCount = list.size //y轴横线刻度数 ，包含 0，比如0到5 设置为 6
+            xCount = 10 //X轴横线刻度数 ，包含 0，比如0到5 设置为 6
+            offsetx = toDp(72f) //UI上原点左下角 x偏移
+            offsetxLable = toDp(20f)//原点 y轴上面刻度文字x偏移  相对控件最左边偏移
+            offsety = toDp(30f) //UI上原点左下角 y 偏移
+            offsetyLable = toDp(8f)//原点 y上面刻度文字文字 y偏移 相对控件左下角点,调整Y值文字在竖直中间位置 与横线对齐
+            layerWidth = toDp(100f)
+        }
+        _datas5.value = chatHBarModel
     }
 
     fun getRandomList(): MutableList<Float> {
