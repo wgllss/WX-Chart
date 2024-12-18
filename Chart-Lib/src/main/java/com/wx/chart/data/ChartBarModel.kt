@@ -1,9 +1,6 @@
 package com.wx.chart.data
 
-class ChartBarModel(
-    val list: MutableList<ChartBarBean>,
-    val barWidth: Float = 40f,
-) : ChartBaseModel() {
+class ChartBarModel(val list: MutableList<ChartBarBean>) : ChartBarBaseModel() {
     val maxY: Float
         get() {
             var max = 0f

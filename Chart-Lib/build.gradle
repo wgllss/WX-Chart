@@ -99,7 +99,8 @@ dependencies {
 
 //    implementation(libs.collapsing.toolbar.scaffold)
     implementation(libs.androidx.ui.graphics.android)
-
+    implementation(libs.glide)
+    implementation(libs.androidx.media3.exoplayer)
 
 //    testImplementation(libs.junit)
 //    androidTestImplementation(libs.androidx.junit)
