@@ -66,9 +66,7 @@ class HBarChartActivity : ComponentActivity() {
 fun HBarChart(innerPadding: PaddingValues = PaddingValues(0.dp), viewModel: SampleViewModel = SampleViewModel().apply { setData() }) {
     var touchData by remember { mutableStateOf(Pair(-1, 0f)) }
     var isTouchLast by remember { mutableStateOf(false) }
-
     val textMeasurer = rememberTextMeasurer()
-
     val chatModel by viewModel.chatHBarModel.observeAsState()
     chatModel?.let {
         Column(
