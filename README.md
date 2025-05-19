@@ -47,6 +47,7 @@ implementation(libs.glide)//动态走势图需要添加glide,加载网络图片
 ###### [(六)Android六边形战士能力图绘制，Compose实现](https://juejin.cn/post/7457449985530757161)
 ###### [(七)Android之中美PK,赛事PK对比图Compose实现](https://juejin.cn/post/7462544107527389247) 
 ###### [(八)Android之等级金字塔之Compose智能实现](https://juejin.cn/post/7468865451134091275)
+###### [(九)地图之Compose轻松绘制,可视化带点击事件，可扩展二次开发](https://juejin.cn/post/7485936146070356006)
 
 #### 4、数据提供方
 
