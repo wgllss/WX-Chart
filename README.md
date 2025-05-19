@@ -5,6 +5,18 @@
 ![5555.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/5555.gif)
 ![6666.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/6666.gif)
 ![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/7777.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/10101010.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/13131313.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/33331111.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/111111111.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/122121212.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/151515551.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/222223333.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/333335555.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/777778888.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/2222888888.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/5555566666.gif)
+![7777.gif](https://raw.githubusercontent.com/wgllss/WX-Chart/refs/heads/master/pic/9999988888.gif)
 
 ## 一、使用WXChart
 

@@ -80,7 +80,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.glide)
 //    implementation(libs.wgllss.wxchart)
-    implementation("io.github.wgllss:Wgllss-WXChart:1.0.16")
+    implementation("io.github.wgllss:Wgllss-WXChart:1.0.38")
 
 //    implementation(project(":Chart-Lib"))
 

@@ -60,6 +60,54 @@
             android:name=".activity.DynamicBarChartActivity"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.DrawMapActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.DrawMap2Activity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.DrawMap3Activity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.DynamicTopBarActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PolygonActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PKActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PK2Activity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PK3Activity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PK4Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.PyramidActivity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.Pyramid2Activity"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.WXChart" />
+        <activity
+            android:name=".activity.Pyramid3Activity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.WXChart" />
     </application>
 
 </manifest>

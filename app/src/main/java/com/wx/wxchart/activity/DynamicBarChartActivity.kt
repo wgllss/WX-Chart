@@ -72,11 +72,11 @@ class DynamicBarChartActivity : ComponentActivity() {
         lifecycleScope.launch {
             setContent {
                 WXChart {
-                    baseUI2({ paddingvalues ->
-                        dynamicBarChart(paddingvalues, viewDModel)
-                    }, {
-                        finish()
-                    })
+//                    baseUI2({ paddingvalues ->
+                    dynamicBarChart(viewModel = viewDModel)
+//                    }, {
+//                        finish()
+//                    })
                 }
             }
         }
@@ -107,22 +107,23 @@ fun dynamicBarChart(innerPadding: PaddingValues = PaddingValues(0.dp), viewModel
     }
 
     chatModel?.let {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
-            .padding(innerPadding)
-            .onSizeChanged {
-                width = it.width
-                height = it.height
-            }
-            .drawBehind {
-                drawImage(
-                    bitmapBg, srcOffset = IntOffset.Zero, srcSize = IntSize(bitmapBg.width, bitmapBg.height),   //绘制的图片大小
-                    dstOffset = IntOffset.Zero, dstSize = IntSize(
-                        width, height
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .padding(innerPadding)
+                .onSizeChanged {
+                    width = it.width
+                    height = it.height
+                }
+                .drawBehind {
+                    drawImage(
+                        bitmapBg, srcOffset = IntOffset.Zero, srcSize = IntSize(bitmapBg.width, bitmapBg.height),   //绘制的图片大小
+                        dstOffset = IntOffset.Zero, dstSize = IntSize(
+                            width, height
+                        )
                     )
-                )
-            }) {
+                }) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -145,7 +146,7 @@ fun dynamicBarChart(innerPadding: PaddingValues = PaddingValues(0.dp), viewModel
 }
 
 
-private fun createImageBitmap(): ImageBitmap {
+fun createImageBitmap(): ImageBitmap {
     val imageBitmap = ImageBitmap(100, 100)
     val canvas = androidx.compose.ui.graphics.Canvas(imageBitmap)
     val paint = Paint()
